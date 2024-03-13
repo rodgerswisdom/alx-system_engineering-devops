@@ -1,3 +1,3 @@
 
 #!/usr/bin/env ruby
-puts ARGV[0].scan(/127.0.0.[A-Za-z]/).join
+puts ARGV[0].scan(/[A-Z][a-z]*/).join

@@ -1,3 +1,3 @@
 
 #!/usr/bin/env ruby
-puts ARGV[0].scan(/[A-Z][a-z]*/).join
+puts ARGV[0].scan(/[a-zA-Z]*[/:]+[/)]+/).join

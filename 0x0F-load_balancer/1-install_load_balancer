@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Installs HAProxy version 1.8:
+
+apt-get update
+apt-get install -y haproxy
+
+printf %s "
+frontend hbnb-lb_front
+        bind *:80
+        mode http
+        default_backend hbnb-lb_back
+backend hbnb-lb_back
+        balance roundrobin
+        server whytecode-web-01 54.152.232.25:80 check
+        server whytecode-web-02 52.204.103.254:80 check
+" >> /etc/haproxy/haproxy.cfg
+
+echo "ENABLED=1" >> /etc/default/haproxy
+
+service haproxy start
